@@ -1,6 +1,7 @@
 package com.example.calculator;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView output;
     private TextView history;
     private Button advance;
+    private Button historyButton;
     private String currentInput = "";
     private double firstNumber = 0;
     private String operator = "";
@@ -39,7 +41,16 @@ public class MainActivity extends AppCompatActivity {
         history = findViewById(R.id.history);
         advance = findViewById(R.id.advance);
         advance.setOnClickListener(v -> toggleHistory());
+        historyButton = findViewById(R.id.historyButton);
 
+        historyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent tosecond = new Intent(MainActivity.this, SecondActivity.class);
+
+                startActivity(tosecond);
+            }
+        });
 
         // Number Buttons
         findViewById(R.id.one).setOnClickListener(v -> appendNumber("1"));
@@ -134,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
             operationHistory.append(currentInput).append(" = ").append(firstNumber).append("\n");
             currentOperation.append(currentInput).append(" = ").append(firstNumber).append("\n");
             output.setText(currentOperation);
+            CalculatorHistory.list.add(currentOperation.toString());
             history.setText(operationHistory.toString());
             operator = ""; // Clear the operator
             isNewOperation = true; // Reset for new operations

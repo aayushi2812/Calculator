@@ -282,6 +282,19 @@
             tools:layout_editor_absoluteX="139dp"
             tools:layout_editor_absoluteY="341dp" />
 
+        <Button
+            android:id="@+id/historyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/Orange"
+            android:text="HISTORY"
+            android:textColor="@color/Black"
+            android:textSize="15sp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="139dp"
+            tools:layout_editor_absoluteY="341dp" />
+
         <TextView
             android:id="@+id/history"
             android:layout_width="370dp"
